@@ -1,0 +1,87 @@
+{
+  "example_1": {
+    "input": {
+      "company": "SMSA Express",
+      "title": "COD Payment",
+      "currency": "SAR"
+    },
+    "output": {
+      "og_title": "SMSA Express - COD Payment",
+      "og_description": "Complete your secure payment for COD Payment with SMSA Express. Fast, reliable, and protected transaction processing in SAR. Trusted payment gateway with SSL encryption.",
+      "page_description": "Secure payment portal for SMSA Express. Processing COD Payment in ر.س. Your transaction is protected with industry-leading security standards including SSL encryption, PCI DSS compliance, and fraud detection. Complete your payment safely and efficiently.",
+      "images": {
+        "hero": "Modern premium payment page hero banner for SMSA Express, featuring clean professional design with gradient background in corporate colors, subtle geometric patterns, floating payment card icons, secure lock symbols, and \"COD Payment\" text overlay, ر.س currency symbol elegantly integrated, high-end fintech aesthetic, soft lighting, professional photography style, 1200x630px",
+        "brand": "Professional brand identity image for SMSA Express, showcasing modern minimalist logo design on clean white background, premium corporate aesthetic, subtle brand colors, elegant typography, trustworthy business appearance, flat design style with depth, suitable for payment platform, financial services look, high quality brand presentation",
+        "payment": "Premium secure payment processing illustration featuring ر.س currency symbol, modern credit card with chip and contactless icon, smartphone with mobile payment interface, shield with checkmark for security, gradient background with SMSA Express brand colors, clean isometric design style, professional fintech illustration, trust and security focused, vibrant yet professional color palette"
+      }
+    }
+  },
+  "example_2": {
+    "input": {
+      "company": "Aramex",
+      "title": "Invoice #54321",
+      "currency": "AED"
+    },
+    "output": {
+      "og_title": "Aramex - Invoice #54321",
+      "og_description": "Complete your secure payment for Invoice #54321 with Aramex. Fast, reliable, and protected transaction processing in AED. Trusted payment gateway with SSL encryption.",
+      "page_description": "Secure payment portal for Aramex. Processing Invoice #54321 in د.إ. Your transaction is protected with industry-leading security standards including SSL encryption, PCI DSS compliance, and fraud detection. Complete your payment safely and efficiently.",
+      "images": {
+        "hero": "Modern premium payment page hero banner for Aramex, featuring clean professional design with gradient background in corporate colors, subtle geometric patterns, floating payment card icons, secure lock symbols, and \"Invoice #54321\" text overlay, د.إ currency symbol elegantly integrated, high-end fintech aesthetic, soft lighting, professional photography style, 1200x630px",
+        "brand": "Professional brand identity image for Aramex, showcasing modern minimalist logo design on clean white background, premium corporate aesthetic, subtle brand colors, elegant typography, trustworthy business appearance, flat design style with depth, suitable for payment platform, financial services look, high quality brand presentation",
+        "payment": "Premium secure payment processing illustration featuring د.إ currency symbol, modern credit card with chip and contactless icon, smartphone with mobile payment interface, shield with checkmark for security, gradient background with Aramex brand colors, clean isometric design style, professional fintech illustration, trust and security focused, vibrant yet professional color palette"
+      }
+    }
+  },
+  "example_3": {
+    "input": {
+      "company": "DHL Global",
+      "title": "Shipping Fee",
+      "currency": "USD"
+    },
+    "output": {
+      "og_title": "DHL Global - Shipping Fee",
+      "og_description": "Complete your secure payment for Shipping Fee with DHL Global. Fast, reliable, and protected transaction processing in USD. Trusted payment gateway with SSL encryption.",
+      "page_description": "Secure payment portal for DHL Global. Processing Shipping Fee in $. Your transaction is protected with industry-leading security standards including SSL encryption, PCI DSS compliance, and fraud detection. Complete your payment safely and efficiently.",
+      "images": {
+        "hero": "Modern premium payment page hero banner for DHL Global, featuring clean professional design with gradient background in corporate colors, subtle geometric patterns, floating payment card icons, secure lock symbols, and \"Shipping Fee\" text overlay, $ currency symbol elegantly integrated, high-end fintech aesthetic, soft lighting, professional photography style, 1200x630px",
+        "brand": "Professional brand identity image for DHL Global, showcasing modern minimalist logo design on clean white background, premium corporate aesthetic, subtle brand colors, elegant typography, trustworthy business appearance, flat design style with depth, suitable for payment platform, financial services look, high quality brand presentation",
+        "payment": "Premium secure payment processing illustration featuring $ currency symbol, modern credit card with chip and contactless icon, smartphone with mobile payment interface, shield with checkmark for security, gradient background with DHL Global brand colors, clean isometric design style, professional fintech illustration, trust and security focused, vibrant yet professional color palette"
+      }
+    }
+  },
+  "example_4": {
+    "input": {
+      "company": "Al Rajhi Bank",
+      "title": "Card Payment",
+      "currency": "SAR"
+    },
+    "output": {
+      "og_title": "Al Rajhi Bank - Card Payment",
+      "og_description": "Complete your secure payment for Card Payment with Al Rajhi Bank. Fast, reliable, and protected transaction processing in SAR. Trusted payment gateway with SSL encryption.",
+      "page_description": "Secure payment portal for Al Rajhi Bank. Processing Card Payment in ر.س. Your transaction is protected with industry-leading security standards including SSL encryption, PCI DSS compliance, and fraud detection. Complete your payment safely and efficiently.",
+      "images": {
+        "hero": "Modern premium payment page hero banner for Al Rajhi Bank, featuring clean professional design with gradient background in corporate colors, subtle geometric patterns, floating payment card icons, secure lock symbols, and \"Card Payment\" text overlay, ر.س currency symbol elegantly integrated, high-end fintech aesthetic, soft lighting, professional photography style, 1200x630px",
+        "brand": "Professional brand identity image for Al Rajhi Bank, showcasing modern minimalist logo design on clean white background, premium corporate aesthetic, subtle brand colors, elegant typography, trustworthy business appearance, flat design style with depth, suitable for payment platform, financial services look, high quality brand presentation",
+        "payment": "Premium secure payment processing illustration featuring ر.س currency symbol, modern credit card with chip and contactless icon, smartphone with mobile payment interface, shield with checkmark for security, gradient background with Al Rajhi Bank brand colors, clean isometric design style, professional fintech illustration, trust and security focused, vibrant yet professional color palette"
+      }
+    }
+  },
+  "example_5": {
+    "input": {
+      "company": "Emirates Post",
+      "title": "Parcel Delivery Fee",
+      "currency": "AED"
+    },
+    "output": {
+      "og_title": "Emirates Post - Parcel Delivery Fee",
+      "og_description": "Complete your secure payment for Parcel Delivery Fee with Emirates Post. Fast, reliable, and protected transaction processing in AED. Trusted payment gateway with SSL encryption.",
+      "page_description": "Secure payment portal for Emirates Post. Processing Parcel Delivery Fee in د.إ. Your transaction is protected with industry-leading security standards including SSL encryption, PCI DSS compliance, and fraud detection. Complete your payment safely and efficiently.",
+      "images": {
+        "hero": "Modern premium payment page hero banner for Emirates Post, featuring clean professional design with gradient background in corporate colors, subtle geometric patterns, floating payment card icons, secure lock symbols, and \"Parcel Delivery Fee\" text overlay, د.إ currency symbol elegantly integrated, high-end fintech aesthetic, soft lighting, professional photography style, 1200x630px",
+        "brand": "Professional brand identity image for Emirates Post, showcasing modern minimalist logo design on clean white background, premium corporate aesthetic, subtle brand colors, elegant typography, trustworthy business appearance, flat design style with depth, suitable for payment platform, financial services look, high quality brand presentation",
+        "payment": "Premium secure payment processing illustration featuring د.إ currency symbol, modern credit card with chip and contactless icon, smartphone with mobile payment interface, shield with checkmark for security, gradient background with Emirates Post brand colors, clean isometric design style, professional fintech illustration, trust and security focused, vibrant yet professional color palette"
+      }
+    }
+  }
+}

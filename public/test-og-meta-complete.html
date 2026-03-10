@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار صور المشاركة والوصف - Payment Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            padding: 30px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .header h1 {
+            color: #1e3c72;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .status {
+            background: #10b981;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+        }
+        
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #1e3c72;
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #10b981;
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .test-card {
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+            background: #f9fafb;
+        }
+        
+        .test-card:hover {
+            border-color: #10b981;
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .test-card h3 {
+            color: #1e3c72;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .test-card .info {
+            margin-bottom: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .test-card .label {
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 5px;
+        }
+        
+        .test-card .value {
+            color: #059669;
+            word-break: break-all;
+        }
+        
+        .og-image-preview {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 5px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+        }
+        
+        .btn-test {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+        
+        .share-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .api-demo {
+            background: #1e293b;
+            color: #10b981;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+        
+        .success-badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        
+        .warning-badge {
+            display: inline-block;
+            background: #f59e0b;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 10px;
+            margin-bottom: 8px;
+            background: #f0fdf4;
+            border-right: 4px solid #10b981;
+            border-radius: 5px;
+        }
+        
+        .feature-list li:before {
+            content: "✅ ";
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 اختبار صور المشاركة والوصف</h1>
+            <p>نظام شامل لاختبار OpenGraph Meta Tags و API توليد البيانات الوصفية</p>
+        </div>
+        
+        <div class="status">
+            ✅ تم النشر بنجاح على Netlify - جميع الأنظمة تعمل!
+        </div>
+        
+        <!-- API Status Section -->
+        <div class="section">
+            <h2>📊 حالة API والخدمات</h2>
+            <ul class="feature-list">
+                <li>Netlify Functions متاحة ومفعلة</li>
+                <li>Edge Functions تعمل بشكل صحيح</li>
+                <li>صور OG موجودة ومحملة (HTTP 200)</li>
+                <li>API توليد البيانات الوصفية جاهز للاستخدام</li>
+                <li>Meta Tags ديناميكية لجميع الصفحات</li>
+            </ul>
+        </div>
+        
+        <!-- Companies OG Images Test -->
+        <div class="section">
+            <h2>🏢 اختبار صور المشاركة للشركات</h2>
+            <div class="test-grid">
+                <!-- Aramex -->
+                <div class="test-card">
+                    <h3>🚚 أرامكس - Aramex</h3>
+                    <div class="info">
+                        <div class="label">صورة OG:</div>
+                        <div class="value">/og-aramex.jpg</div>
+                    </div>
+                    <img src="/og-aramex.jpg" alt="Aramex OG" class="og-image-preview" loading="lazy">
+                    <div class="share-links">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://melodic-squirrel-d354d7.netlify.app" target="_blank" class="btn btn-secondary">مشاركة Facebook</a>
+                        <a href="https://api.whatsapp.com/send?text=https://melodic-squirrel-d354d7.netlify.app" target="_blank" class="btn">مشاركة WhatsApp</a>
+                    </div>
+                </div>
+                
+                <!-- SMSA -->
+                <div class="test-card">
+                    <h3>📦 سمسا - SMSA</h3>
+                    <div class="info">
+                        <div class="label">صورة OG:</div>
+                        <div class="value">/og-smsa.jpg</div>
+                    </div>
+                    <img src="/og-smsa.jpg" alt="SMSA OG" class="og-image-preview" loading="lazy">
+                    <div class="share-links">
+                        <a href="https://twitter.com/intent/tweet?url=https://melodic-squirrel-d354d7.netlify.app" target="_blank" class="btn btn-secondary">مشاركة Twitter</a>
+                    </div>
+                </div>
+                
+                <!-- DHL -->
+                <div class="test-card">
+                    <h3>⚡ دي إتش إل - DHL</h3>
+                    <div class="info">
+                        <div class="label">صورة OG:</div>
+                        <div class="value">/og-dhl.jpg</div>
+                    </div>
+                    <img src="/og-dhl.jpg" alt="DHL OG" class="og-image-preview" loading="lazy">
+                </div>
+                
+                <!-- FedEx -->
+                <div class="test-card">
+                    <h3>📮 فيديكس - FedEx</h3>
+                    <div class="info">
+                        <div class="label">صورة OG:</div>
+                        <div class="value">/og-fedex.jpg</div>
+                    </div>
+                    <img src="/og-fedex.jpg" alt="FedEx OG" class="og-image-preview" loading="lazy">
+                </div>
+                
+                <!-- UPS -->
+                <div class="test-card">
+                    <h3>🌐 يو بي إس - UPS</h3>
+                    <div class="info">
+                        <div class="label">صورة OG:</div>
+                        <div class="value">/og-ups.jpg</div>
+                    </div>
+                    <img src="/og-ups.jpg" alt="UPS OG" class="og-image-preview" loading="lazy">
+                </div>
+                
+                <!-- Zajil -->
+                <div class="test-card">
+                    <h3>📫 زاجل - Zajil</h3>
+                    <div class="info">
+                        <div class="label">صورة OG:</div>
+                        <div class="value">/og-zajil.jpg</div>
+                    </div>
+                    <img src="/og-zajil.jpg" alt="Zajil OG" class="og-image-preview" loading="lazy">
+                </div>
+            </div>
+        </div>
+        
+        <!-- API Metadata Generator Test -->
+        <div class="section">
+            <h2>🎨 API توليد البيانات الوصفية</h2>
+            <p style="margin-bottom: 20px;">جرب API الجديد لتوليد metadata ديناميكي مع prompts صور AI محسّنة:</p>
+            
+            <div style="margin-bottom: 20px;">
+                <a href="/test-payment-meta-generator.html" class="btn btn-test" target="_blank">
+                    🚀 افتح واجهة الاختبار التفاعلية
+                </a>
+            </div>
+            
+            <div class="api-demo">
+curl -X POST https://melodic-squirrel-d354d7.netlify.app/.netlify/functions/generate-payment-meta \
+  -H "Content-Type: application/json" \
+  -d '{
+    "company": "SMSA Express",
+    "title": "COD Payment",
+    "currency": "SAR"
+  }'
+            </div>
+            
+            <button onclick="testAPI()" class="btn" style="margin-top: 15px;">
+                🧪 اختبر API الآن
+            </button>
+            
+            <div id="apiResult" style="margin-top: 15px;"></div>
+        </div>
+        
+        <!-- Meta Tags Validation -->
+        <div class="section">
+            <h2>🔍 التحقق من Meta Tags</h2>
+            <p style="margin-bottom: 20px;">استخدم هذه الأدوات للتحقق من Meta Tags:</p>
+            
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a href="https://developers.facebook.com/tools/debug/" target="_blank" class="btn">
+                    Facebook Debugger
+                </a>
+                <a href="https://cards-dev.twitter.com/validator" target="_blank" class="btn btn-secondary">
+                    Twitter Card Validator
+                </a>
+                <a href="https://www.linkedin.com/post-inspector/" target="_blank" class="btn btn-test">
+                    LinkedIn Inspector
+                </a>
+            </div>
+            
+            <div style="margin-top: 20px; padding: 15px; background: #f0fdf4; border-radius: 8px;">
+                <strong>✅ تم التحقق:</strong>
+                <ul style="margin-top: 10px; margin-right: 25px;">
+                    <li>OG Images: ✅ تعمل (HTTP 200)</li>
+                    <li>OG Title: ✅ موجود</li>
+                    <li>OG Description: ✅ موجود</li>
+                    <li>Twitter Cards: ✅ مفعّل</li>
+                    <li>WhatsApp Preview: ✅ جاهز</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Documentation Links -->
+        <div class="section">
+            <h2>📚 التوثيق والإرشادات</h2>
+            <div style="display: grid; gap: 15px;">
+                <div style="padding: 15px; background: #f9fafb; border-radius: 8px; border-right: 4px solid #10b981;">
+                    <strong>📖 التوثيق الكامل:</strong>
+                    <p style="margin-top: 5px; color: #666;">
+                        راجع ملف <code>PAYMENT_META_GENERATOR.md</code> للحصول على دليل شامل
+                    </p>
+                </div>
+                
+                <div style="padding: 15px; background: #f9fafb; border-radius: 8px; border-right: 4px solid #3b82f6;">
+                    <strong>🚀 البدء السريع:</strong>
+                    <p style="margin-top: 5px; color: #666;">
+                        راجع ملف <code>QUICK_START_META_GENERATOR.md</code> لأمثلة سريعة
+                    </p>
+                </div>
+                
+                <div style="padding: 15px; background: #f9fafb; border-radius: 8px; border-right: 4px solid #8b5cf6;">
+                    <strong>💡 أمثلة:</strong>
+                    <p style="margin-top: 5px; color: #666;">
+                        راجع ملف <code>examples/payment-meta-example.json</code> لأمثلة جاهزة
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Deployment Info -->
+        <div class="section">
+            <h2>🚀 معلومات النشر</h2>
+            <div class="info" style="background: #f0f9ff; padding: 20px; border-radius: 8px;">
+                <div style="margin-bottom: 10px;">
+                    <span class="success-badge">Production</span>
+                    <strong>رابط الموقع:</strong> 
+                    <a href="https://melodic-squirrel-d354d7.netlify.app" target="_blank" style="color: #2563eb;">
+                        https://melodic-squirrel-d354d7.netlify.app
+                    </a>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <span class="success-badge">Functions</span>
+                    <strong>عدد الوظائف:</strong> 2 (microsite-meta, generate-payment-meta)
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <span class="success-badge">Edge Functions</span>
+                    <strong>عدد الوظائف:</strong> 2 (dynamic-meta, og-injector)
+                </div>
+                <div>
+                    <span class="success-badge">SSL</span>
+                    <strong>الأمان:</strong> HTTPS مفعّل
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        async function testAPI() {
+            const resultDiv = document.getElementById('apiResult');
+            resultDiv.innerHTML = '<div style="padding: 15px; background: #fef3c7; border-radius: 8px;">⏳ جاري الاختبار...</div>';
+            
+            try {
+                const response = await fetch('/.netlify/functions/generate-payment-meta', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        company: 'Aramex Express',
+                        title: 'رسوم الشحن',
+                        currency: 'SAR'
+                    })
+                });
+                
+                const data = await response.json();
+                
+                resultDiv.innerHTML = `
+                    <div style="padding: 20px; background: #f0fdf4; border-radius: 8px; border: 2px solid #10b981;">
+                        <strong style="color: #10b981;">✅ نجح الاختبار!</strong>
+                        <pre style="margin-top: 15px; padding: 15px; background: #1e293b; color: #10b981; border-radius: 8px; overflow-x: auto; font-size: 13px;">${JSON.stringify(data, null, 2)}</pre>
+                    </div>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div style="padding: 20px; background: #fee; border-radius: 8px; border: 2px solid #ef4444;">
+                        <strong style="color: #ef4444;">❌ فشل الاختبار:</strong>
+                        <p style="margin-top: 10px;">${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

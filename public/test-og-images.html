@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اختبار صور المشاركة (OG Images)</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 20px;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: white;
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .subtitle {
+      color: rgba(255,255,255,0.9);
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    .stats {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-around;
+      color: white;
+      text-align: center;
+    }
+    .stat { padding: 10px; }
+    .stat-number { font-size: 2.5rem; font-weight: bold; }
+    .stat-label { font-size: 0.9rem; opacity: 0.8; margin-top: 5px; }
+    .section {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    .section-title {
+      font-size: 1.8rem;
+      color: #333;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #667eea;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .image-card {
+      border: 2px solid #e5e7eb;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      background: #f9fafb;
+    }
+    .image-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      border-color: #667eea;
+    }
+    .image-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 1200/630;
+      object-fit: cover;
+    }
+    .image-info {
+      padding: 15px;
+      background: white;
+    }
+    .image-name {
+      font-weight: bold;
+      color: #1f2937;
+      margin-bottom: 5px;
+      font-size: 0.9rem;
+    }
+    .image-size {
+      color: #6b7280;
+      font-size: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 5px;
+      font-size: 0.7rem;
+      font-weight: bold;
+    }
+    .badge-success { background: #dcfce7; color: #166534; }
+    .badge-info { background: #dbeafe; color: #1e40af; }
+    .error-img {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+    .country-section {
+      margin-bottom: 30px;
+    }
+    .country-header {
+      font-size: 1.5rem;
+      color: #374151;
+      margin-bottom: 15px;
+      padding: 10px 15px;
+      background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+      border-radius: 8px;
+      border-right: 4px solid #667eea;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 اختبار صور المشاركة (OG Images)</h1>
+    <p class="subtitle">جميع صور Open Graph للبنوك والخدمات - جاهزة للمشاركة</p>
+    
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-number">74</div>
+        <div class="stat-label">إجمالي الصور</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">43</div>
+        <div class="stat-label">صور البنوك</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">7</div>
+        <div class="stat-label">صور الخدمات</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">1200×630</div>
+        <div class="stat-label">الأبعاد (px)</div>
+      </div>
+    </div>
+
+    <!-- خدمات الدفع -->
+    <div class="section">
+      <h2 class="section-title">🏛️ خدمات الدفع (7 صور)</h2>
+      <div class="grid" id="services-grid"></div>
+    </div>
+
+    <!-- بنوك السعودية -->
+    <div class="section">
+      <h2 class="section-title">🇸🇦 بنوك السعودية (10 بنوك)</h2>
+      <div class="grid" id="sa-grid"></div>
+    </div>
+
+    <!-- بنوك الإمارات -->
+    <div class="section">
+      <h2 class="section-title">🇦🇪 بنوك الإمارات (8 بنوك)</h2>
+      <div class="grid" id="ae-grid"></div>
+    </div>
+
+    <!-- بنوك الكويت -->
+    <div class="section">
+      <h2 class="section-title">🇰🇼 بنوك الكويت (7 بنوك)</h2>
+      <div class="grid" id="kw-grid"></div>
+    </div>
+
+    <!-- بنوك قطر -->
+    <div class="section">
+      <h2 class="section-title">🇶🇦 بنوك قطر (6 بنوك)</h2>
+      <div class="grid" id="qa-grid"></div>
+    </div>
+
+    <!-- بنوك عُمان -->
+    <div class="section">
+      <h2 class="section-title">🇴🇲 بنوك عُمان (6 بنوك)</h2>
+      <div class="grid" id="om-grid"></div>
+    </div>
+
+    <!-- بنوك البحرين -->
+    <div class="section">
+      <h2 class="section-title">🇧🇭 بنوك البحرين (6 بنوك)</h2>
+      <div class="grid" id="bh-grid"></div>
+    </div>
+  </div>
+
+  <script>
+    const services = [
+      { id: 'government_payment', name: 'الدفع الحكومي', icon: '🏛️' },
+      { id: 'local_payment', name: 'الدفع المحلي', icon: '💳' },
+      { id: 'health_links', name: 'الخدمات الصحية', icon: '🏥' },
+      { id: 'contracts', name: 'العقود', icon: '📄' },
+      { id: 'invoices', name: 'الفواتير', icon: '🧾' },
+      { id: 'chalets', name: 'الشاليهات', icon: '🏖️' },
+      { id: 'bank_pages', name: 'الخدمات البنكية', icon: '🏦' }
+    ];
+
+    const banks = {
+      SA: [
+        { id: 'alrajhi_bank', name: 'مصرف الراجحي' },
+        { id: 'alahli_bank', name: 'البنك الأهلي السعودي' },
+        { id: 'riyad_bank', name: 'بنك الرياض' },
+        { id: 'samba_bank', name: 'مجموعة سامبا المالية' },
+        { id: 'saudi_investment_bank', name: 'البنك السعودي للاستثمار' },
+        { id: 'arab_national_bank', name: 'البنك العربي الوطني' },
+        { id: 'saudi_fransi_bank', name: 'البنك السعودي الفرنسي' },
+        { id: 'alinma_bank', name: 'بنك الإنماء' },
+        { id: 'albilad_bank', name: 'بنك البلاد' },
+        { id: 'aljazira_bank', name: 'بنك الجزيرة' }
+      ],
+      AE: [
+        { id: 'emirates_nbd', name: 'بنك الإمارات دبي الوطني' },
+        { id: 'adcb', name: 'بنك أبوظبي التجاري' },
+        { id: 'fab', name: 'بنك أبوظبي الأول' },
+        { id: 'dib', name: 'بنك دبي الإسلامي' },
+        { id: 'mashreq_bank', name: 'بنك المشرق' },
+        { id: 'cbd', name: 'بنك دبي التجاري' },
+        { id: 'rakbank', name: 'بنك رأس الخيمة الوطني' },
+        { id: 'ajman_bank', name: 'بنك عجمان' }
+      ],
+      KW: [
+        { id: 'nbk', name: 'بنك الكويت الوطني' },
+        { id: 'gulf_bank', name: 'بنك الخليج' },
+        { id: 'cbk', name: 'البنك التجاري الكويتي' },
+        { id: 'burgan_bank', name: 'بنك برقان' },
+        { id: 'ahli_united_bank', name: 'الأهلي المتحد' },
+        { id: 'kfh', name: 'بيت التمويل الكويتي' },
+        { id: 'boubyan_bank', name: 'بنك بوبيان' }
+      ],
+      QA: [
+        { id: 'qnb', name: 'بنك قطر الوطني' },
+        { id: 'cbq', name: 'البنك التجاري القطري' },
+        { id: 'doha_bank', name: 'بنك الدوحة' },
+        { id: 'qib', name: 'بنك قطر الإسلامي' },
+        { id: 'masraf_alrayan', name: 'مصرف الريان' },
+        { id: 'ahlibank', name: 'الأهلي بنك' }
+      ],
+      OM: [
+        { id: 'bank_muscat', name: 'بنك مسقط' },
+        { id: 'national_bank_oman', name: 'البنك الوطني العماني' },
+        { id: 'bank_dhofar', name: 'بنك ظفار' },
+        { id: 'ahli_bank_oman', name: 'البنك الأهلي' },
+        { id: 'nizwa_bank', name: 'بنك نزوى' },
+        { id: 'sohar_international', name: 'بنك صحار الدولي' }
+      ],
+      BH: [
+        { id: 'nbb', name: 'بنك البحرين الوطني' },
+        { id: 'bbk', name: 'بنك البحرين والكويت' },
+        { id: 'ahli_united_bahrain', name: 'الأهلي المتحد' },
+        { id: 'bisb', name: 'بنك البحرين الإسلامي' },
+        { id: 'ithmaar_bank', name: 'بنك إثمار' },
+        { id: 'khaleeji_bank', name: 'بنك الخليج التجاري' }
+      ]
+    };
+
+    function createImageCard(id, name, isBank = false) {
+      const card = document.createElement('div');
+      card.className = 'image-card';
+      
+      const imgPath = isBank ? `/og-bank-${id}.jpg` : `/og-${id}.jpg`;
+      
+      card.innerHTML = `
+        <img src="${imgPath}" alt="${name}" onerror="this.parentElement.classList.add('error'); this.className='error-img'; this.alt='صورة غير متوفرة';">
+        <div class="image-info">
+          <div class="image-name">${name}</div>
+          <div class="image-size">
+            <span>${imgPath}</span>
+            <span class="badge badge-success">1200×630</span>
+          </div>
+        </div>
+      `;
+      
+      return card;
+    }
+
+    // Render services
+    const servicesGrid = document.getElementById('services-grid');
+    services.forEach(service => {
+      servicesGrid.appendChild(createImageCard(service.id, `${service.icon} ${service.name}`, false));
+    });
+
+    // Render banks by country
+    Object.entries(banks).forEach(([countryCode, countryBanks]) => {
+      const grid = document.getElementById(`${countryCode.toLowerCase()}-grid`);
+      if (grid) {
+        countryBanks.forEach(bank => {
+          grid.appendChild(createImageCard(bank.id, bank.name, true));
+        });
+      }
+    });
+  </script>
+</body>
+</html>

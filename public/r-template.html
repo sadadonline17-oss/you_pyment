@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Link - Secure Payment</title>
+    <meta name="description" content="Secure payment link for [SERVICE_NAME] - [SERVICE_DESCRIPTION]" />
+    <meta name="author" content="منصة الشحن الذكية" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gulf-unified-payment.netlify.app/r/[COUNTRY]/[TYPE]/[ID]" />
+    <meta property="og:title" content="[SERVICE_NAME] - [SERVICE_TYPE]" />
+    <meta property="og:description" content="[SERVICE_DESCRIPTION]" />
+    <meta property="og:image" content="https://gulf-unified-payment.netlify.app/[OG_IMAGE]" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:site_name" content="نظام الدفع الآمن" />
+    <meta property="og:locale" content="ar_AR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://gulf-unified-payment.netlify.app/r/[COUNTRY]/[TYPE]/[ID]" />
+    <meta name="twitter:title" content="[SERVICE_NAME] - [SERVICE_TYPE]" />
+    <meta name="twitter:description" content="[SERVICE_DESCRIPTION]" />
+    <meta name="twitter:image" content="https://gulf-unified-payment.netlify.app/[OG_IMAGE]" />
+    <meta name="twitter:image:alt" content="[SERVICE_NAME]" />
+
+    <link rel="canonical" href="https://gulf-unified-payment.netlify.app/r/[COUNTRY]/[TYPE]/[ID]" />
+  </head>
+  <body>
+    <div id="root">
+      <div style="text-align: center; padding: 50px; font-family: 'Almarai', sans-serif;">
+        <h1>جاري التحميل...</h1>
+        <p>الرجاء الانتظار</p>
+      </div>
+    </div>
+    <script>
+      // Redirect to main app with preserved path
+      window.location.href = 'https://gulf-unified-payment.netlify.app' + window.location.pathname + window.location.search;
+    </script>
+  </body>
+</html>

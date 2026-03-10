@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Metadata Generator - Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        
+        .form-section {
+            padding: 40px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .results {
+            margin-top: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .results.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .results h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .json-output {
+            background: #2d3748;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .copy-btn {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: #48bb78;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .copy-btn:hover {
+            background: #38a169;
+        }
+        
+        .error {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+        }
+        
+        .error.show {
+            display: block;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: #667eea;
+        }
+        
+        .loading.show {
+            display: block;
+        }
+        
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Payment Metadata Generator</h1>
+            <p>Generate dynamic OpenGraph metadata and image prompts for payment pages</p>
+        </div>
+        
+        <div class="form-section">
+            <form id="metaForm">
+                <div class="form-group">
+                    <label for="company">Company Name *</label>
+                    <input 
+                        type="text" 
+                        id="company" 
+                        name="company" 
+                        placeholder="e.g., Aramex, DHL, SMSA Express"
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="title">Payment Title/Reason *</label>
+                    <input 
+                        type="text" 
+                        id="title" 
+                        name="title" 
+                        placeholder="e.g., Shipping Fee, Invoice Payment, Service Charge"
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="currency">Currency *</label>
+                    <select id="currency" name="currency" required>
+                        <option value="">Select Currency</option>
+                        <option value="SAR">SAR - Saudi Riyal (ر.س)</option>
+                        <option value="AED">AED - UAE Dirham (د.إ)</option>
+                        <option value="KWD">KWD - Kuwaiti Dinar (د.ك)</option>
+                        <option value="QAR">QAR - Qatari Riyal (ر.ق)</option>
+                        <option value="OMR">OMR - Omani Rial (ر.ع)</option>
+                        <option value="BHD">BHD - Bahraini Dinar (د.ب)</option>
+                        <option value="USD">USD - US Dollar ($)</option>
+                        <option value="EUR">EUR - Euro (€)</option>
+                        <option value="GBP">GBP - British Pound (£)</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn">Generate Metadata</button>
+            </form>
+            
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Generating metadata...</p>
+            </div>
+            
+            <div class="error" id="error"></div>
+            
+            <div class="results" id="results">
+                <h3>📋 Generated Metadata (JSON)</h3>
+                <div class="json-output" id="jsonOutput"></div>
+                <button class="copy-btn" onclick="copyToClipboard()">📋 Copy JSON</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const form = document.getElementById('metaForm');
+        const loading = document.getElementById('loading');
+        const error = document.getElementById('error');
+        const results = document.getElementById('results');
+        const jsonOutput = document.getElementById('jsonOutput');
+        
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const company = document.getElementById('company').value.trim();
+            const title = document.getElementById('title').value.trim();
+            const currency = document.getElementById('currency').value;
+            
+            if (!company || !title || !currency) {
+                showError('Please fill in all required fields');
+                return;
+            }
+            
+            loading.classList.add('show');
+            error.classList.remove('show');
+            results.classList.remove('show');
+            
+            try {
+                const response = await fetch('/.netlify/functions/generate-payment-meta', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ company, title, currency }),
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                loading.classList.remove('show');
+                jsonOutput.textContent = JSON.stringify(data, null, 2);
+                results.classList.add('show');
+                
+            } catch (err) {
+                loading.classList.remove('show');
+                showError(`Error: ${err.message}. Make sure the Netlify function is deployed.`);
+            }
+        });
+        
+        function showError(message) {
+            error.textContent = message;
+            error.classList.add('show');
+        }
+        
+        function copyToClipboard() {
+            const text = jsonOutput.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '✅ Copied!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            });
+        }
+        
+        document.getElementById('company').value = 'Aramex Express';
+        document.getElementById('title').value = 'Shipping Fee Payment';
+        document.getElementById('currency').value = 'SAR';
+    </script>
+</body>
+</html>

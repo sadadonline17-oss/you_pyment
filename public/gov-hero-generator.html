@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Government Hero Images Generator</title>
+</head>
+<body>
+    <canvas id="canvas" width="1200" height="400"></canvas>
+    <script>
+        const systems = [
+            { name: 'sadad', primary: '#F58220', secondary: '#E67317', text: 'سداد' },
+            { name: 'knet', primary: '#007A3D', secondary: '#CE1126', text: 'كي نت' },
+            { name: 'jaywan', primary: '#CE1126', secondary: '#00732F', text: 'جيوان' },
+            { name: 'benefit', primary: '#CE1126', secondary: '#D32027', text: 'بنفت' },
+            { name: 'maal', primary: '#D0032C', secondary: '#009A44', text: 'مال' },
+            { name: 'qatar', primary: '#8D1B3D', secondary: '#6B1529', text: 'بوابة الدفع' }
+        ];
+        
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        systems.forEach(sys => {
+            ctx.clearRect(0, 0, 1200, 400);
+            const gradient = ctx.createLinearGradient(0, 0, 1200, 400);
+            gradient.addColorStop(0, sys.primary);
+            gradient.addColorStop(1, sys.secondary);
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 1200, 400);
+            
+            const link = document.createElement('a');
+            link.download = `og-${sys.name}.jpg`;
+            link.href = canvas.toDataURL('image/jpeg', 0.9);
+            link.click();
+        });
+    </script>
+</body>
+</html>

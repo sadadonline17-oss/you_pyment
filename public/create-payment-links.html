@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء روابط الدفع - Payment Links Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            background: #f8f9ff;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            display: none;
+        }
+        
+        .result.show {
+            display: block;
+        }
+        
+        .result h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .link-box {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            word-break: break-all;
+            margin-bottom: 15px;
+            border: 2px solid #667eea;
+            position: relative;
+        }
+        
+        .link-box a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .copy-btn {
+            width: auto;
+            padding: 10px 20px;
+            font-size: 1em;
+            margin-top: 0;
+            background: #28a745;
+        }
+        
+        .copy-btn:hover {
+            background: #218838;
+        }
+        
+        .copied {
+            background: #218838 !important;
+        }
+        
+        .examples {
+            margin-top: 40px;
+            padding: 25px;
+            background: #fff9e6;
+            border-radius: 10px;
+        }
+        
+        .examples h3 {
+            color: #ff9800;
+            margin-bottom: 15px;
+        }
+        
+        .example-item {
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            border-left: 3px solid #ff9800;
+        }
+        
+        .example-item strong {
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .example-item code {
+            color: #667eea;
+            font-size: 0.9em;
+            word-break: break-all;
+        }
+        
+        .alert {
+            padding: 20px;
+            background: #fff3cd;
+            border-right: 5px solid #ffc107;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .alert strong {
+            color: #856404;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .alert p {
+            color: #856404;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .row {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔗 مولد روابط الدفع</h1>
+        <p class="subtitle">أنشئ روابط دفع احترافية مع صور معاينة مخصصة</p>
+        
+        <div class="alert">
+            <strong>⚠️ تنبيه مهم</strong>
+            <p>قبل استخدام هذه الأداة، تأكد من نشر الموقع على Netlify. ثم قم بتعديل حقل "رابط الموقع" أدناه.</p>
+        </div>
+        
+        <div class="form-group">
+            <label>🌐 رابط الموقع على Netlify</label>
+            <input type="text" id="siteUrl" placeholder="https://your-site.netlify.app" value="">
+        </div>
+        
+        <div class="form-group">
+            <label>📦 نوع الخدمة</label>
+            <select id="serviceType">
+                <optgroup label="شركات الشحن">
+                    <option value="aramex">أرامكس - Aramex</option>
+                    <option value="dhl">دي إتش إل - DHL</option>
+                    <option value="fedex">فيديكس - FedEx</option>
+                    <option value="ups">يو بي إس - UPS</option>
+                    <option value="smsa">سمسا - SMSA</option>
+                    <option value="naqel">ناقل - Naqel</option>
+                    <option value="zajil">زاجل - Zajil</option>
+                    <option value="saudipost">البريد السعودي</option>
+                    <option value="empost">البريد الإماراتي</option>
+                    <option value="qpost">البريد القطري</option>
+                    <option value="kwpost">البريد الكويتي</option>
+                    <option value="omanpost">البريد العماني</option>
+                    <option value="bahpost">البريد البحريني</option>
+                </optgroup>
+                <optgroup label="الخدمات الحكومية">
+                    <option value="government_payment">الدفع الحكومي</option>
+                </optgroup>
+                <optgroup label="خدمات أخرى">
+                    <option value="health_links">الخدمات الصحية</option>
+                    <option value="chalets">الشاليهات</option>
+                    <option value="contracts">العقود</option>
+                    <option value="invoices">الفواتير</option>
+                    <option value="local_payment">الدفع المحلي</option>
+                </optgroup>
+            </select>
+        </div>
+        
+        <div class="row">
+            <div class="form-group">
+                <label>🆔 رقم الفاتورة / المعرف</label>
+                <input type="text" id="invoiceId" placeholder="INV-2025-001" value="INV-TEST-001">
+            </div>
+            
+            <div class="form-group">
+                <label>🌍 الدولة</label>
+                <select id="country">
+                    <option value="SA">السعودية - Saudi Arabia</option>
+                    <option value="AE">الإمارات - UAE</option>
+                    <option value="KW">الكويت - Kuwait</option>
+                    <option value="QA">قطر - Qatar</option>
+                    <option value="OM">عمان - Oman</option>
+                    <option value="BH">البحرين - Bahrain</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="form-group">
+                <label>💰 المبلغ (اختياري)</label>
+                <input type="number" id="amount" placeholder="100" value="">
+            </div>
+            
+            <div class="form-group">
+                <label>💵 العملة</label>
+                <select id="currency">
+                    <option value="SAR">ريال سعودي - SAR</option>
+                    <option value="AED">درهم إماراتي - AED</option>
+                    <option value="KWD">دينار كويتي - KWD</option>
+                    <option value="QAR">ريال قطري - QAR</option>
+                    <option value="OMR">ريال عماني - OMR</option>
+                    <option value="BHD">دينار بحريني - BHD</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>📝 عنوان الدفع</label>
+            <input type="text" id="title" placeholder="دفع شحنة أرامكس" value="دفع شحنة">
+        </div>
+        
+        <button onclick="generateLink()">🚀 إنشاء رابط الدفع</button>
+        
+        <div class="result" id="result">
+            <h3>✅ تم إنشاء الرابط بنجاح!</h3>
+            <div class="link-box" id="linkBox">
+                <a href="#" target="_blank" id="generatedLink"></a>
+            </div>
+            <button class="copy-btn" onclick="copyLink()">📋 نسخ الرابط</button>
+        </div>
+        
+        <div class="examples">
+            <h3>💡 أمثلة على الروابط</h3>
+            <div class="example-item">
+                <strong>مثال 1: شحنة أرامكس (السعودية)</strong>
+                <code>/pay/ARX-001/recipient?company=aramex&currency=SAR&title=دفع%20شحنة%20أرامكس</code>
+            </div>
+            <div class="example-item">
+                <strong>مثال 2: دفع حكومي سداد</strong>
+                <code>/government-payment?country=SA&amount=500&currency=SAR&service=sadad</code>
+            </div>
+            <div class="example-item">
+                <strong>مثال 3: فاتورة DHL (الإمارات)</strong>
+                <code>/pay/DHL-123/recipient?company=dhl&currency=AED&title=DHL%20Shipping</code>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-fill currency based on country
+        document.getElementById('country').addEventListener('change', function() {
+            const currencyMap = {
+                'SA': 'SAR',
+                'AE': 'AED',
+                'KW': 'KWD',
+                'QA': 'QAR',
+                'OM': 'OMR',
+                'BH': 'BHD'
+            };
+            document.getElementById('currency').value = currencyMap[this.value];
+        });
+        
+        function generateLink() {
+            const siteUrl = document.getElementById('siteUrl').value.trim() || 'https://YOUR-SITE.netlify.app';
+            const serviceType = document.getElementById('serviceType').value;
+            const invoiceId = document.getElementById('invoiceId').value || 'INV-001';
+            const country = document.getElementById('country').value;
+            const amount = document.getElementById('amount').value;
+            const currency = document.getElementById('currency').value;
+            const title = document.getElementById('title').value || 'Payment';
+            
+            let link = '';
+            
+            // For shipping and regular services
+            if (['aramex', 'dhl', 'fedex', 'ups', 'smsa', 'naqel', 'zajil', 
+                 'saudipost', 'empost', 'qpost', 'kwpost', 'omanpost', 'bahpost',
+                 'invoices'].includes(serviceType)) {
+                link = `${siteUrl}/pay/${invoiceId}/recipient?company=${serviceType}&currency=${currency}&title=${encodeURIComponent(title)}`;
+                if (amount) {
+                    link += `&amount=${amount}`;
+                }
+            }
+            // For government payment
+            else if (serviceType === 'government_payment') {
+                link = `${siteUrl}/government-payment?country=${country}&currency=${currency}`;
+                if (amount) {
+                    link += `&amount=${amount}`;
+                }
+            }
+            // For other services
+            else if (serviceType === 'health_links') {
+                link = `${siteUrl}/health-payment?country=${country}&currency=${currency}`;
+                if (amount) {
+                    link += `&amount=${amount}`;
+                }
+            }
+            else if (serviceType === 'chalets') {
+                link = `${siteUrl}/chalet-payment?country=${country}&currency=${currency}`;
+                if (amount) {
+                    link += `&amount=${amount}`;
+                }
+            }
+            else if (serviceType === 'contracts') {
+                link = `${siteUrl}/contract-payment?country=${country}&currency=${currency}`;
+                if (amount) {
+                    link += `&amount=${amount}`;
+                }
+            }
+            else if (serviceType === 'local_payment') {
+                link = `${siteUrl}/local-payment?country=${country}&currency=${currency}`;
+                if (amount) {
+                    link += `&amount=${amount}`;
+                }
+            }
+            
+            // Display result
+            document.getElementById('generatedLink').href = link;
+            document.getElementById('generatedLink').textContent = link;
+            document.getElementById('result').classList.add('show');
+            
+            // Scroll to result
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        function copyLink() {
+            const link = document.getElementById('generatedLink').textContent;
+            navigator.clipboard.writeText(link).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '✅ تم النسخ!';
+                btn.classList.add('copied');
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+        
+        // Generate on Enter key
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                generateLink();
+            }
+        });
+    </script>
+</body>
+</html>

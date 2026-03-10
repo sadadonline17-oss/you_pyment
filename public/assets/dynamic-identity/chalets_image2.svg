@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 514">
+  <rect width="1200" height="514" fill="url(#grad_ch2)"/>
+  <defs>
+    <linearGradient id="grad_ch2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ea580c"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+  </defs>
+  <circle cx="250" cy="150" r="80" fill="#fbbf24" opacity="0.8"/>
+  <g transform="translate(150, 250)">
+    <ellipse cx="150" cy="80" rx="200" ry="80" fill="#3b82f6" opacity="0.6"/>
+    <rect x="30" y="20" width="60" height="60" fill="#f97316"/>
+    <rect x="110" y="20" width="60" height="60" fill="#f97316"/>
+    <rect x="190" y="20" width="60" height="60" fill="#f97316"/>
+  </g>
+  <text x="550" y="200" font-size="48" font-weight="bold" fill="white">أجواء استثنائية</text>
+  <text x="550" y="250" font-size="24" fill="white" opacity="0.9">استمتع بأفضل الأوقات مع العائلة</text>
+</svg>

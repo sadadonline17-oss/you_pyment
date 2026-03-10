@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Government OG Images Generator</title>
+    <style>
+        body {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            padding: 20px;
+        }
+        canvas {
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            display: block;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800&family=Tajawal:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Government Payment Systems - OG Images Generator</h1>
+    <canvas id="canvas" width="1200" height="630"></canvas>
+    <div id="controls"></div>
+
+    <script>
+        const systems = [
+            { 
+                id: 'sadad', 
+                name: 'سداد',
+                nameEn: 'SADAD',
+                country: '🇸🇦 المملكة العربية السعودية',
+                primary: '#F58220',
+                secondary: '#E67317',
+                accent: '#FFB366',
+                description: 'نظام المدفوعات الوطني'
+            },
+            { 
+                id: 'knet', 
+                name: 'كي نت',
+                nameEn: 'KNET',
+                country: '🇰🇼 دولة الكويت',
+                primary: '#007A3D',
+                secondary: '#CE1126',
+                accent: '#FFB81C',
+                description: 'شبكة الكويت للمدفوعات'
+            },
+            { 
+                id: 'benefit', 
+                name: 'بنفت',
+                nameEn: 'BENEFIT',
+                country: '🇧🇭 مملكة البحرين',
+                primary: '#CE1126',
+                secondary: '#D32027',
+                accent: '#FFFFFF',
+                description: 'الشبكة الإلكترونية المالية'
+            },
+            { 
+                id: 'edirham', 
+                name: 'الدرهم الإلكتروني',
+                nameEn: 'eDirham',
+                country: '🇦🇪 الإمارات العربية المتحدة',
+                primary: '#CE1126',
+                secondary: '#00732F',
+                accent: '#FFB81C',
+                description: 'نظام الدفع الوطني الإماراتي'
+            },
+            { 
+                id: 'maal', 
+                name: 'مال',
+                nameEn: 'Maal',
+                country: '🇴🇲 سلطنة عُمان',
+                primary: '#D0032C',
+                secondary: '#009A44',
+                accent: '#FFFFFF',
+                description: 'بطاقة الدفع الوطنية'
+            },
+            { 
+                id: 'qatar', 
+                name: 'بوابة الدفع',
+                nameEn: 'Gov Payment',
+                country: '🇶🇦 دولة قطر',
+                primary: '#8D1B3D',
+                secondary: '#6B1529',
+                accent: '#D4AF37',
+                description: 'البوابة الحكومية للدفع'
+            }
+        ];
+        
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const controls = document.getElementById('controls');
+        
+        function generateImage(sys) {
+            ctx.clearRect(0, 0, 1200, 630);
+            
+            const gradient = ctx.createLinearGradient(0, 0, 1200, 630);
+            gradient.addColorStop(0, sys.primary);
+            gradient.addColorStop(0.5, sys.secondary);
+            gradient.addColorStop(1, sys.primary);
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 1200, 630);
+            
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';
+            for (let i = 0; i < 50; i++) {
+                const x = Math.random() * 1200;
+                const y = Math.random() * 630;
+                const radius = Math.random() * 100 + 50;
+                ctx.beginPath();
+                ctx.arc(x, y, radius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+            ctx.fillRect(100, 150, 1000, 330);
+            
+            ctx.fillStyle = sys.primary;
+            ctx.fillRect(100, 150, 1000, 8);
+            
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            ctx.fillStyle = sys.primary;
+            ctx.font = 'bold 90px Cairo, Tajawal, Arial';
+            ctx.fillText(sys.name, 600, 260);
+            
+            ctx.fillStyle = '#333333';
+            ctx.font = '38px Cairo, Tajawal, Arial';
+            ctx.fillText(sys.nameEn, 600, 340);
+            
+            ctx.fillStyle = '#666666';
+            ctx.font = '28px Cairo, Tajawal, Arial';
+            ctx.fillText(sys.description, 600, 400);
+            
+            ctx.fillStyle = sys.secondary;
+            ctx.font = 'bold 24px Cairo, Tajawal, Arial';
+            ctx.fillText(sys.country, 600, 450);
+            
+            const link = document.createElement('a');
+            link.download = `og-${sys.id}.jpg`;
+            link.href = canvas.toDataURL('image/jpeg', 0.95);
+            link.click();
+        }
+        
+        systems.forEach(sys => {
+            const btn = document.createElement('button');
+            btn.textContent = `Generate ${sys.nameEn}`;
+            btn.onclick = () => generateImage(sys);
+            controls.appendChild(btn);
+        });
+        
+        const genAll = document.createElement('button');
+        genAll.textContent = 'Generate All';
+        genAll.style.fontWeight = 'bold';
+        genAll.style.backgroundColor = '#4CAF50';
+        genAll.style.color = 'white';
+        genAll.onclick = () => {
+            systems.forEach((sys, i) => {
+                setTimeout(() => generateImage(sys), i * 500);
+            });
+        };
+        controls.appendChild(genAll);
+    </script>
+</body>
+</html>

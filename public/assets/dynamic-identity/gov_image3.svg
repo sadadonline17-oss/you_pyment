@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 514">
+  <rect width="1200" height="514" fill="url(#grad_gov3)"/>
+  <defs>
+    <linearGradient id="grad_gov3" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#15803d"/>
+      <stop offset="100%" style="stop-color:#22c55e"/>
+    </linearGradient>
+  </defs>
+  <circle cx="250" cy="250" r="120" fill="white" opacity="0.9"/>
+  <path d="M200 250L230 280L310 200" stroke="#15803d" stroke-width="20" fill="none"/>
+  <text x="450" y="200" font-size="48" font-weight="bold" fill="white">عملية ناجحة</text>
+  <text x="450" y="250" font-size="24" fill="white" opacity="0.9">تم استلام دفعتك بنجاح</text>
+  <text x="450" y="290" font-size="20" fill="white" opacity="0.8">✓ تأكيد فوري</text>
+  <text x="450" y="325" font-size="20" fill="white" opacity="0.8">✓ إيصال إلكتروني</text>
+</svg>

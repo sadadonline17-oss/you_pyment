@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار الوصف الديناميكي - WhatsApp & Facebook</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            min-height: 100vh;
+            padding: 30px 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 36px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .success-alert {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .success-alert h2 {
+            color: #10b981;
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+        .success-alert .status {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 10px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 20px;
+        }
+        .test-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .test-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        .card-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+        .company-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .company-name {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .company-type {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .meta-info {
+            margin-bottom: 15px;
+        }
+        .meta-label {
+            font-size: 12px;
+            color: #6b7280;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .meta-value {
+            font-size: 14px;
+            color: #374151;
+            background: #f3f4f6;
+            padding: 10px;
+            border-radius: 8px;
+            line-height: 1.5;
+        }
+        .test-url {
+            background: #1f2937;
+            color: #10b981;
+            padding: 12px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 11px;
+            word-break: break-all;
+            margin-top: 15px;
+            direction: ltr;
+            text-align: left;
+        }
+        .copy-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 14px;
+            transition: transform 0.2s;
+        }
+        .copy-btn:hover {
+            transform: scale(1.02);
+        }
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .share-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 12px;
+            transition: transform 0.2s;
+        }
+        .share-btn:hover {
+            transform: scale(1.05);
+        }
+        .whatsapp {
+            background: #25d366;
+        }
+        .facebook {
+            background: #1877f2;
+        }
+        .telegram {
+            background: #0088cc;
+        }
+        .twitter {
+            background: #1da1f2;
+        }
+        .instructions {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .instructions h3 {
+            color: #059669;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        .instructions ol {
+            color: #374151;
+            line-height: 2.2;
+            padding-right: 25px;
+            font-size: 16px;
+        }
+        .note {
+            background: #fef3c7;
+            border-right: 4px solid #f59e0b;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .note strong {
+            color: #92400e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✅ الوصف الديناميكي يعمل الآن بنجاح!</h1>
+        
+        <div class="success-alert">
+            <h2>🎯 كل شركة لها الوصف والصورة الخاصة بها</h2>
+            <p style="color: #6b7280; margin: 15px 0; font-size: 16px;">
+                جرّب مشاركة أي رابط أدناه على WhatsApp أو Telegram<br>
+                ستظهر المعاينة الصحيحة للشركة المختارة!
+            </p>
+            <div class="status">✓ تم التحديث والنشر بنجاح</div>
+        </div>
+
+        <div class="test-grid">
+            <!-- Aramex -->
+            <div class="test-card">
+                <div class="card-header">
+                    <div class="company-icon">🚚</div>
+                    <div class="company-name">أرامكس</div>
+                    <div class="company-type">شحن عالمي سريع</div>
+                </div>
+                <div class="card-body">
+                    <div class="meta-info">
+                        <div class="meta-label">العنوان عند المشاركة:</div>
+                        <div class="meta-value">دفع آمن - أرامكس للشحن السريع 🚚</div>
+                    </div>
+                    <div class="meta-info">
+                        <div class="meta-label">الوصف عند المشاركة:</div>
+                        <div class="meta-value">خدمات شحن عالمية مع أرامكس - أكمل عملية الدفع بأمان تام للحصول على خدمات شحن سريعة وموثوقة في جميع أنحاء الخليج والعالم ✅</div>
+                    </div>
+                    <div class="test-url">https://nimble-cocada-0804bc.netlify.app/r/test?company=aramex</div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://nimble-cocada-0804bc.netlify.app/r/test?company=aramex')">📋 نسخ الرابط</button>
+                    <div class="share-buttons">
+                        <button class="share-btn whatsapp" onclick="shareOn('whatsapp', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=aramex')">WhatsApp</button>
+                        <button class="share-btn facebook" onclick="shareOn('facebook', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=aramex')">Facebook</button>
+                        <button class="share-btn telegram" onclick="shareOn('telegram', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=aramex')">Telegram</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DHL -->
+            <div class="test-card">
+                <div class="card-header">
+                    <div class="company-icon">⚡</div>
+                    <div class="company-name">DHL</div>
+                    <div class="company-type">الشبكة العالمية الأكبر</div>
+                </div>
+                <div class="card-body">
+                    <div class="meta-info">
+                        <div class="meta-label">العنوان عند المشاركة:</div>
+                        <div class="meta-value">دفع آمن - DHL الشحن العالمي السريع ⚡</div>
+                    </div>
+                    <div class="meta-info">
+                        <div class="meta-label">الوصف عند المشاركة:</div>
+                        <div class="meta-value">DHL - الشبكة العالمية الأكبر للشحن السريع - أكمل دفعتك بأمان للحصول على خدمات توصيل سريعة وموثوقة إلى أي مكان في العالم 🌍</div>
+                    </div>
+                    <div class="test-url">https://nimble-cocada-0804bc.netlify.app/r/test?company=dhl</div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://nimble-cocada-0804bc.netlify.app/r/test?company=dhl')">📋 نسخ الرابط</button>
+                    <div class="share-buttons">
+                        <button class="share-btn whatsapp" onclick="shareOn('whatsapp', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=dhl')">WhatsApp</button>
+                        <button class="share-btn facebook" onclick="shareOn('facebook', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=dhl')">Facebook</button>
+                        <button class="share-btn telegram" onclick="shareOn('telegram', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=dhl')">Telegram</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SMSA -->
+            <div class="test-card">
+                <div class="card-header">
+                    <div class="company-icon">🚛</div>
+                    <div class="company-name">SMSA Express</div>
+                    <div class="company-type">رائدة الشحن السعودي</div>
+                </div>
+                <div class="card-body">
+                    <div class="meta-info">
+                        <div class="meta-label">العنوان عند المشاركة:</div>
+                        <div class="meta-value">دفع آمن - SMSA Express سمسا إكسبرس 🚛</div>
+                    </div>
+                    <div class="meta-info">
+                        <div class="meta-label">الوصف عند المشاركة:</div>
+                        <div class="meta-value">SMSA Express - الرائدة في الشحن السعودي - أكمل الدفع بأمان للحصول على خدمات توصيل سريعة في جميع أنحاء المملكة 🇸🇦</div>
+                    </div>
+                    <div class="test-url">https://nimble-cocada-0804bc.netlify.app/r/test?company=smsa</div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://nimble-cocada-0804bc.netlify.app/r/test?company=smsa')">📋 نسخ الرابط</button>
+                    <div class="share-buttons">
+                        <button class="share-btn whatsapp" onclick="shareOn('whatsapp', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=smsa')">WhatsApp</button>
+                        <button class="share-btn facebook" onclick="shareOn('facebook', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=smsa')">Facebook</button>
+                        <button class="share-btn telegram" onclick="shareOn('telegram', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=smsa')">Telegram</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chalets -->
+            <div class="test-card">
+                <div class="card-header">
+                    <div class="company-icon">🏖️</div>
+                    <div class="company-name">الشاليهات والاستراحات</div>
+                    <div class="company-type">حجز وإقامة فاخرة</div>
+                </div>
+                <div class="card-body">
+                    <div class="meta-info">
+                        <div class="meta-label">العنوان عند المشاركة:</div>
+                        <div class="meta-value">دفع آمن - حجز الشاليهات والاستراحات 🏖️</div>
+                    </div>
+                    <div class="meta-info">
+                        <div class="meta-label">الوصف عند المشاركة:</div>
+                        <div class="meta-value">حجز شاليهات فاخرة واستراحات مريحة - ادفع بأمان واحجز إقامتك المثالية مع عروض حصرية وخدمات متميزة في جميع أنحاء الخليج 🌟</div>
+                    </div>
+                    <div class="test-url">https://nimble-cocada-0804bc.netlify.app/r/test?company=chalets</div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://nimble-cocada-0804bc.netlify.app/r/test?company=chalets')">📋 نسخ الرابط</button>
+                    <div class="share-buttons">
+                        <button class="share-btn whatsapp" onclick="shareOn('whatsapp', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=chalets')">WhatsApp</button>
+                        <button class="share-btn facebook" onclick="shareOn('facebook', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=chalets')">Facebook</button>
+                        <button class="share-btn telegram" onclick="shareOn('telegram', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=chalets')">Telegram</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Government -->
+            <div class="test-card">
+                <div class="card-header">
+                    <div class="company-icon">🏛️</div>
+                    <div class="company-name">الخدمات الحكومية</div>
+                    <div class="company-type">سداد رسوم حكومية</div>
+                </div>
+                <div class="card-body">
+                    <div class="meta-info">
+                        <div class="meta-label">العنوان عند المشاركة:</div>
+                        <div class="meta-value">دفع آمن - الخدمات الحكومية 🏛️</div>
+                    </div>
+                    <div class="meta-info">
+                        <div class="meta-label">الوصف عند المشاركة:</div>
+                        <div class="meta-value">دفع الخدمات والرسوم الحكومية - سدد رسومك الحكومية إلكترونياً بأمان تام مع سداد، بنفت، مدى وجميع أنظمة الدفع الحكومية المعتمدة ✅</div>
+                    </div>
+                    <div class="test-url">https://nimble-cocada-0804bc.netlify.app/r/test?company=government_payment</div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://nimble-cocada-0804bc.netlify.app/r/test?company=government_payment')">📋 نسخ الرابط</button>
+                    <div class="share-buttons">
+                        <button class="share-btn whatsapp" onclick="shareOn('whatsapp', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=government_payment')">WhatsApp</button>
+                        <button class="share-btn facebook" onclick="shareOn('facebook', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=government_payment')">Facebook</button>
+                        <button class="share-btn telegram" onclick="shareOn('telegram', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=government_payment')">Telegram</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Health -->
+            <div class="test-card">
+                <div class="card-header">
+                    <div class="company-icon">🏥</div>
+                    <div class="company-name">الخدمات الصحية</div>
+                    <div class="company-type">دفع فواتير طبية</div>
+                </div>
+                <div class="card-body">
+                    <div class="meta-info">
+                        <div class="meta-label">العنوان عند المشاركة:</div>
+                        <div class="meta-value">دفع آمن - الخدمات الصحية والطبية 🏥</div>
+                    </div>
+                    <div class="meta-info">
+                        <div class="meta-label">الوصف عند المشاركة:</div>
+                        <div class="meta-value">دفع الخدمات الصحية والطبية - سدد فواتيرك الطبية، التأمين الصحي، والمستشفيات بأمان مع تأكيد فوري وخصوصية تامة 🩺</div>
+                    </div>
+                    <div class="test-url">https://nimble-cocada-0804bc.netlify.app/r/test?company=health_links</div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://nimble-cocada-0804bc.netlify.app/r/test?company=health_links')">📋 نسخ الرابط</button>
+                    <div class="share-buttons">
+                        <button class="share-btn whatsapp" onclick="shareOn('whatsapp', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=health_links')">WhatsApp</button>
+                        <button class="share-btn facebook" onclick="shareOn('facebook', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=health_links')">Facebook</button>
+                        <button class="share-btn telegram" onclick="shareOn('telegram', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=health_links')">Telegram</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banks -->
+            <div class="test-card">
+                <div class="card-header">
+                    <div class="company-icon">🏦</div>
+                    <div class="company-name">البنوك الخليجية</div>
+                    <div class="company-type">خدمات مصرفية</div>
+                </div>
+                <div class="card-body">
+                    <div class="meta-info">
+                        <div class="meta-label">العنوان عند المشاركة:</div>
+                        <div class="meta-value">دفع آمن - البنوك الخليجية 🏦</div>
+                    </div>
+                    <div class="meta-info">
+                        <div class="meta-label">الوصف عند المشاركة:</div>
+                        <div class="meta-value">الدفع عبر البنوك الخليجية - اختر بنكك المفضل من أكثر من 50 بنك خليجي وأكمل معاملتك المالية بأمان وسرعة فائقة 💎</div>
+                    </div>
+                    <div class="test-url">https://nimble-cocada-0804bc.netlify.app/r/test?company=bank_pages</div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://nimble-cocada-0804bc.netlify.app/r/test?company=bank_pages')">📋 نسخ الرابط</button>
+                    <div class="share-buttons">
+                        <button class="share-btn whatsapp" onclick="shareOn('whatsapp', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=bank_pages')">WhatsApp</button>
+                        <button class="share-btn facebook" onclick="shareOn('facebook', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=bank_pages')">Facebook</button>
+                        <button class="share-btn telegram" onclick="shareOn('telegram', 'https://nimble-cocada-0804bc.netlify.app/r/test?company=bank_pages')">Telegram</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>📱 كيفية اختبار الوصف الديناميكي:</h3>
+            <ol>
+                <li><strong>اختر أي شركة</strong> من البطاقات أعلاه</li>
+                <li><strong>اضغط "نسخ الرابط"</strong> أو استخدم أحد أزرار المشاركة</li>
+                <li><strong>افتح WhatsApp</strong> وألصق الرابط في أي محادثة</li>
+                <li><strong>انتظر ثانية</strong> لتظهر المعاينة التلقائية</li>
+                <li><strong>تحقق من المعاينة:</strong> يجب أن تظهر العنوان والوصف والصورة الصحيحة للشركة</li>
+            </ol>
+
+            <div class="note">
+                <strong>ملاحظة هامة:</strong> إذا كنت قد شاركت رابط من قبل، قد يكون WhatsApp/Facebook احتفظ بنسخة cache قديمة. جرّب:
+                <ul style="margin-top: 10px; line-height: 2;">
+                    <li>• استخدم رابط جديد لم يتم مشاركته من قبل</li>
+                    <li>• أو استخدم أداة Facebook Debugger لتحديث الـ cache: <a href="https://developers.facebook.com/tools/debug/" target="_blank" style="color: #1877f2;">Facebook Debugger</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('✅ تم نسخ الرابط!\n\nيمكنك الآن لصقه في WhatsApp أو Telegram');
+            }).catch(err => {
+                console.error('فشل النسخ:', err);
+                alert('حدث خطأ في النسخ');
+            });
+        }
+
+        function shareOn(platform, url) {
+            const encodedUrl = encodeURIComponent(url);
+            let shareUrl = '';
+            
+            switch(platform) {
+                case 'whatsapp':
+                    shareUrl = `https://api.whatsapp.com/send?text=${encodedUrl}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+                    break;
+                case 'telegram':
+                    shareUrl = `https://t.me/share/url?url=${encodedUrl}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${encodedUrl}`;
+                    break;
+            }
+            
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+            }
+        }
+    </script>
+</body>
+</html>

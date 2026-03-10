@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 514">
+  <rect width="1200" height="514" fill="url(#grad_inv1)"/>
+  <defs>
+    <linearGradient id="grad_inv1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(100, 100)">
+    <rect x="0" y="0" width="350" height="300" rx="15" fill="white" opacity="0.95"/>
+    <rect x="0" y="0" width="350" height="60" rx="15" fill="#7c3aed"/>
+    <text x="175" y="40" font-size="24" font-weight="bold" fill="white" text-anchor="middle">فاتورة</text>
+    <text x="30" y="100" font-size="16" fill="#374151">رقم الفاتورة: INV-2024-001</text>
+    <text x="30" y="130" font-size="16" fill="#374151">التاريخ: 11 ديسمبر 2024</text>
+    <line x1="30" y1="150" x2="320" y2="150" stroke="#e5e7eb" stroke-width="2"/>
+    <text x="30" y="180" font-size="14" fill="#6b7280">وصف الخدمة</text>
+    <text x="270" y="180" font-size="14" fill="#6b7280">المبلغ</text>
+    <text x="30" y="210" font-size="14" fill="#374151">خدمة مقدمة</text>
+    <text x="270" y="210" font-size="14" fill="#374151">500 ر.س</text>
+    <line x1="30" y1="230" x2="320" y2="230" stroke="#e5e7eb" stroke-width="2"/>
+    <text x="30" y="260" font-size="18" font-weight="bold" fill="#7c3aed">الإجمالي</text>
+    <text x="270" y="260" font-size="18" font-weight="bold" fill="#7c3aed">500 ر.س</text>
+  </g>
+  <text x="550" y="200" font-size="48" font-weight="bold" fill="white">الفواتير والمستحقات</text>
+  <text x="550" y="250" font-size="24" fill="white" opacity="0.9">إدارة ودفع فواتيرك إلكترونياً</text>
+</svg>

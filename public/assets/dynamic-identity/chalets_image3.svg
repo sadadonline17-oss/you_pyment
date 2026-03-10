@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 514">
+  <rect width="1200" height="514" fill="url(#grad_ch3)"/>
+  <defs>
+    <linearGradient id="grad_ch3" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#b91c1c"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <text x="100" y="150" font-size="64" fill="white" opacity="0.9">⭐⭐⭐⭐⭐</text>
+  <text x="100" y="220" font-size="48" font-weight="bold" fill="white">شاليهات فاخرة</text>
+  <text x="100" y="270" font-size="24" fill="white" opacity="0.9">• مسابح خاصة</text>
+  <text x="100" y="310" font-size="24" fill="white" opacity="0.9">• ألعاب مائية</text>
+  <text x="100" y="350" font-size="24" fill="white" opacity="0.9">• مرافق متكاملة</text>
+  <text x="100" y="390" font-size="24" fill="white" opacity="0.9">• خصوصية تامة</text>
+</svg>

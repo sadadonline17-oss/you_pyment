@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 514">
+  <rect width="1200" height="514" fill="url(#grad_inv2)"/>
+  <defs>
+    <linearGradient id="grad_inv2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6d28d9"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(150, 150)">
+    <circle cx="100" cy="100" r="80" fill="white" opacity="0.9"/>
+    <path d="M60 100L85 125L140 70" stroke="#7c3aed" stroke-width="12" fill="none"/>
+  </g>
+  <text x="400" y="200" font-size="48" font-weight="bold" fill="white">دفع سريع وآمن</text>
+  <text x="400" y="250" font-size="24" fill="white" opacity="0.9">✓ تأكيد فوري</text>
+  <text x="400" y="290" font-size="24" fill="white" opacity="0.9">✓ إيصال إلكتروني</text>
+  <text x="400" y="330" font-size="24" fill="white" opacity="0.9">✓ حفظ تلقائي</text>
+</svg>

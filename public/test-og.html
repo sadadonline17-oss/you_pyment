@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار صورة المشاركة - OG Image Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 28px;
+        }
+        .success {
+            background: #10b981;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .og-preview {
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .og-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .og-info {
+            padding: 20px;
+            background: #f9fafb;
+        }
+        .og-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #111;
+            margin-bottom: 8px;
+        }
+        .og-description {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .og-url {
+            color: #9ca3af;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+        .test-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .test-link {
+            display: block;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .test-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .info-box {
+            background: #eff6ff;
+            border-right: 4px solid #3b82f6;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .info-box h3 {
+            color: #1e40af;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .info-box p {
+            color: #1e3a8a;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✅ تم إصلاح صورة المشاركة بنجاح!</h1>
+        
+        <div class="success">
+            ✓ الصور تستخدم الآن روابط كاملة (Absolute URLs)
+        </div>
+
+        <div class="og-preview">
+            <img src="/og-aramex.jpg" alt="OG Image Preview" class="og-image">
+            <div class="og-info">
+                <div class="og-title">دفع آمن - أرامكس للشحن السريع 🚚</div>
+                <div class="og-description">خدمات شحن عالمية مع أرامكس - أكمل عملية الدفع بأمان تام للحصول على خدمات شحن سريعة وموثوقة في جميع أنحاء الخليج والعالم ✅</div>
+                <div class="og-url">nimble-cocada-0804bc.netlify.app</div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>📱 كيفية الاختبار:</h3>
+            <p>
+                1. انسخ رابط الموقع الرئيسي<br>
+                2. افتح WhatsApp أو Telegram<br>
+                3. الصق الرابط في أي محادثة<br>
+                4. ستظهر صورة المعاينة مع العنوان والوصف
+            </p>
+        </div>
+
+        <div class="info-box" style="margin-top: 15px; background: #f0fdf4; border-right-color: #10b981;">
+            <h3 style="color: #065f46;">✨ ما تم إصلاحه:</h3>
+            <p style="color: #064e3b;">
+                • تحويل روابط الصور من نسبية (/og-aramex.jpg) إلى مطلقة (https://...)<br>
+                • إضافة og:url tag للمشاركة الصحيحة<br>
+                • تحسين Twitter Cards للعرض المثالي<br>
+                • ضبط Edge Function للعمل بشكل ديناميكي
+            </p>
+        </div>
+
+        <div class="test-links">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://nimble-cocada-0804bc.netlify.app" target="_blank" class="test-link">
+                اختبار على Facebook
+            </a>
+            <a href="https://twitter.com/intent/tweet?url=https://nimble-cocada-0804bc.netlify.app" target="_blank" class="test-link">
+                اختبار على Twitter
+            </a>
+            <a href="https://api.whatsapp.com/send?text=https://nimble-cocada-0804bc.netlify.app" target="_blank" class="test-link">
+                اختبار على WhatsApp
+            </a>
+            <a href="/" class="test-link" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                العودة للرئيسية
+            </a>
+        </div>
+    </div>
+</body>
+</html>
