@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -125,14 +125,14 @@ const PaymentRecipient = () => {
     console.error('Error loading link:', error);
   }
 
-  // VisualBrandEnforcer: Log brand enforcement report (development only)
-  useEffect(() => {
-    if (import.meta.env.DEV) {
-      console.log('[VisualBrandEnforcer]', brandReport);
-      console.log('[VisualBrandEnforcer] Functional Lock:', FUNCTIONAL_LOCK);
-      console.log('[VisualBrandEnforcer] No Functional Changes:', NO_FUNCTIONAL_CHANGES_ASSERTION);
-    }
-  }, [serviceKey]);
+  // VisualBrandEnforcer: Log brand enforcement report (development only, memoized)
+  const brandReportLogged = useRef(false);
+  if (import.meta.env.DEV && !brandReportLogged.current) {
+    brandReportLogged.current = true;
+    console.log('[VisualBrandEnforcer]', brandReport);
+    console.log('[VisualBrandEnforcer] Functional Lock:', FUNCTIONAL_LOCK);
+    console.log('[VisualBrandEnforcer] No Functional Changes:', NO_FUNCTIONAL_CHANGES_ASSERTION);
+  }
 
   const formattedAmount = formatCurrency(amount, currencyCode);
   const phonePlaceholder = countryData?.phonePlaceholder || "5X XXX XXXX";
