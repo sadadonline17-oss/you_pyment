@@ -8,7 +8,7 @@
   NODE_VERSION = "20.12.1"
   NPM_FLAGS = "--legacy-peer-deps"
 
-# Edge function for dynamic meta tags
+# Edge function for dynamic meta tags - runs on all routes
 [[edge_functions]]
   function = "dynamic-meta"
   path = "/*"

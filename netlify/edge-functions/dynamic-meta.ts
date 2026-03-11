@@ -208,8 +208,7 @@ export default async (request: Request, context: Context) => {
     const meta = companyMeta[companyParam.toLowerCase()] || companyMeta.default;
     
     // GitHub CDN - موثوق 100% لحل مشكلة WhatsApp cache
-    const githubCDN = 'https://raw.githubusercontent.com/you3333ef/Youssef-Dafa/main/public';
-    const fullImageUrl = `${githubCDN}${meta.image}`;
+    const fullImageUrl = meta.image.startsWith('http') ? meta.image : meta.image;
     const fullUrl = url.href;
 
     // تم إزالة console.log للـ production

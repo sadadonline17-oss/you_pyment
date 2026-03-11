@@ -26,3 +26,34 @@ dist-ssr
 # Local Netlify folder
 .netlify
 .env
+
+# Build artifacts
+*.tar.gz
+*.zip
+production-build-*
+netlify-deploy*
+og-images-complete.tar.gz
+site.tar.gz
+deploy*
+
+# Test files
+test-*.html
+test-*.sh
+test-*.js
+test-*.cjs
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Logs and caches
+.pnpm-debug.log
+npm-debug.log
+yarn-error.log
+yarn-debug.log

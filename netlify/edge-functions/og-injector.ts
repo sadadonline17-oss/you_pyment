@@ -31,44 +31,44 @@ export default async function handler(request: Request, context: { next: () => P
     const response = await context.next();
     const html = await response.text();
 
-    // GitHub CDN - موثوق 100% لحل مشكلة WhatsApp cache
-    const githubCDN = 'https://raw.githubusercontent.com/you3333ef/Youssef-Dafa/main/public';
-
-    // Company to OG image mapping (using GitHub CDN for reliability)
+    // Use relative paths for OG images (served from /public folder)
+    const ogImageBase = '/og-';
+    
+    // Company to OG image mapping
     const companyImages: Record<string, string> = {
-      'aramex': `${githubCDN}/og-aramex.jpg`,
-      'dhl': `${githubCDN}/og-dhl.jpg`,
-      'dhlkw': `${githubCDN}/og-dhl.jpg`,
-      'dhlqa': `${githubCDN}/og-dhl.jpg`,
-      'dhlom': `${githubCDN}/og-dhl.jpg`,
-      'dhlbh': `${githubCDN}/og-dhl.jpg`,
-      'fedex': `${githubCDN}/og-fedex.jpg`,
-      'ups': `${githubCDN}/og-ups.jpg`,
-      'empost': `${githubCDN}/og-empost.jpg`,
-      'smsa': `${githubCDN}/og-smsa.jpg`,
-      'zajil': `${githubCDN}/og-zajil.jpg`,
-      'naqel': `${githubCDN}/og-naqel.jpg`,
-      'saudipost': `${githubCDN}/og-saudipost.jpg`,
-      'kwpost': `${githubCDN}/og-kwpost.jpg`,
-      'qpost': `${githubCDN}/og-qpost.jpg`,
-      'omanpost': `${githubCDN}/og-omanpost.jpg`,
-      'bahpost': `${githubCDN}/og-bahpost.jpg`,
-      'jinakum': `${githubCDN}/og-jinakum.jpg`,
-      'jinaken': `${githubCDN}/og-jinaken.jpg`,
-      'albaraka': `${githubCDN}/og-albaraka.jpg`,
-      'alfuttaim': `${githubCDN}/og-alfuttaim.jpg`,
-      'alshaya': `${githubCDN}/og-alshaya.jpg`,
-      'shipco': `${githubCDN}/og-shipco.jpg`,
-      'national': `${githubCDN}/og-bahri.jpg`,
-      'bahri': `${githubCDN}/og-bahri.jpg`,
-      'hellmann': `${githubCDN}/og-hellmann.jpg`,
-      'dsv': `${githubCDN}/og-dsv.jpg`,
-      'agility': `${githubCDN}/og-aramex.jpg`,
-      'genacom': `${githubCDN}/og-genacom.jpg`
+      'aramex': `${ogImageBase}aramex.jpg`,
+      'dhl': `${ogImageBase}dhl.jpg`,
+      'dhlkw': `${ogImageBase}dhl.jpg`,
+      'dhlqa': `${ogImageBase}dhl.jpg`,
+      'dhlom': `${ogImageBase}dhl.jpg`,
+      'dhlbh': `${ogImageBase}dhl.jpg`,
+      'fedex': `${ogImageBase}fedex.jpg`,
+      'ups': `${ogImageBase}ups.jpg`,
+      'empost': `${ogImageBase}empost.jpg`,
+      'smsa': `${ogImageBase}smsa.jpg`,
+      'zajil': `${ogImageBase}zajil.jpg`,
+      'naqel': `${ogImageBase}naqel.jpg`,
+      'saudipost': `${ogImageBase}saudipost.jpg`,
+      'kwpost': `${ogImageBase}kwpost.jpg`,
+      'qpost': `${ogImageBase}qpost.jpg`,
+      'omanpost': `${ogImageBase}omanpost.jpg`,
+      'bahpost': `${ogImageBase}bahpost.jpg`,
+      'jinakum': `${ogImageBase}jinakum.jpg`,
+      'jinaken': `${ogImageBase}jinaken.jpg`,
+      'albaraka': `${ogImageBase}albaraka.jpg`,
+      'alfuttaim': `${ogImageBase}alfuttaim.jpg`,
+      'alshaya': `${ogImageBase}alshaya.jpg`,
+      'shipco': `${ogImageBase}shipco.jpg`,
+      'national': `${ogImageBase}bahri.jpg`,
+      'bahri': `${ogImageBase}bahri.jpg`,
+      'hellmann': `${ogImageBase}hellmann.jpg`,
+      'dsv': `${ogImageBase}dsv.jpg`,
+      'agility': `${ogImageBase}aramex.jpg`,
+      'genacom': `${ogImageBase}genacom.jpg`
     };
 
     // Get OG image for the company, fallback to aramex
-    const ogImage = companyImages[company.toLowerCase()] || `${githubCDN}/og-aramex.jpg`;
+    const ogImage = companyImages[company.toLowerCase()] || `${ogImageBase}aramex.jpg`;
 
     // Company display names
     const companyNames: Record<string, string> = {

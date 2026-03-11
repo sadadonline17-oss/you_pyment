@@ -507,7 +507,7 @@ const PaymentRecipient = () => {
             className="w-full h-56 sm:h-72 md:h-80 object-cover"
             onError={(e) => e.currentTarget.style.display = 'none'}
           />
-          <div 
+          <div
             className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"
           />
           <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
@@ -519,14 +519,14 @@ const PaymentRecipient = () => {
             </p>
           </div>
         </div>
-      ) : !isShippingCompany && !serviceVisual ? (
-        <BrandedCarousel 
-          serviceKey={serviceKey} 
-          className="mb-0" 
+      ) : (!isShippingCompany && !serviceVisual) ? (
+        <BrandedCarousel
+          serviceKey={serviceKey}
+          className="mb-0"
           countryCode={countryCode}
           isGovService={isGovService}
         />
-      )}
+      ) : null}
 
       {/* Main Content */}
       <div 
